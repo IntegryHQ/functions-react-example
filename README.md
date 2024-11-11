@@ -43,3 +43,28 @@ npm install
 ```
 
 4. Make sure to replace the appKey, appSecret, and userId in the App.js file with your own credentials from Integry.
+
+## Usage
+
+Once you have set up the project, follow these steps:
+
+1. Run the React app locally:
+
+```bash
+yarn start
+```
+
+Or, with npm:
+
+```bash
+npm start
+```
+
+2. **The app will automatically:**
+
+- Authenticate the user using appKey, appSecret, and userId.
+- Check if the Mailchimp app is connected using integry.isConnected("mailchimp").
+- If it’s not connected, it will initiate a connection and proceed to render the function UI.
+- It will then invoke the mailchimp-add-member-to-list function and log the response or errors in the console.
+
+3. Open the app in your browser at http://localhost:3000 and check the console for the response from the Mailchimp API.
