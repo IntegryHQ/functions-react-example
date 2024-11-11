@@ -1,6 +1,6 @@
 # Integry React Example
 
-This repository demonstrates how to integrate and use Integry SDK within a React application. It shows how to connect to third-party applications (like Mailchimp), check their connection status, and execute functions using the Integry SDK.
+This repository demonstrates how to integrate and use Integry SDK within a React application. It shows how to connect to third-party applications (like Slack), check their connection status, and execute functions using the Integry SDK.
 
 ## Prerequisites
 
@@ -12,8 +12,8 @@ Before you start, you’ll need the following:
 
 ## Features
 
-1. Connect to Third-Party Apps: The example demonstrates connecting to the Mailchimp app using the Integry SDK.
-2. Invoke Integry Functions: Once connected, you can invoke functions (e.g. mailchimp-add-member-to-list) from the Integry platform.
+1. Connect to Third-Party Apps: The example demonstrates connecting to the Slack app using the Integry SDK.
+2. Invoke Integry Functions: Once connected, you can invoke functions (e.g. slack-post-message) from the Integry platform.
 3. Custom UI Rendering: The app dynamically renders the function UI using Integry's `renderFunctionUI`.
 
 ## Installation
@@ -63,8 +63,8 @@ npm start
 2. **The app will automatically:**
 
 - Authenticate the user using appKey, appSecret, and userId.
-- Check if the Mailchimp app is connected using integry.isConnected("mailchimp").
+- Check if the Slack app is connected using integry.isConnected("slack").
 - If it’s not connected, it will initiate a connection and proceed to render the function UI.
-- It will then invoke the mailchimp-add-member-to-list function and log the response or errors in the console.
+- It will then invoke the slack-post-message function and log the response or errors in the console.
 
-3. Open the app in your browser at http://localhost:3000 and check the console for the response from the Mailchimp API.
+3. Open the app in your browser at http://localhost:3000 and check the console for the response from the Slack API.
