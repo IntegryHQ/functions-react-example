@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@integry/sdk@^4.3.38":
-  version "4.3.38"
-  resolved "https://registry.yarnpkg.com/@integry/sdk/-/sdk-4.3.38.tgz#5aa49d867c75608765ee72f4f37972de13aca682"
-  integrity sha512-w4hMWIDiY2s9qm3tvU35V0AdMV/fAMp8aVOsEbHpSHIUmDnfo5KsdBhCi6QFtl+MRr32/YYG6E8gV/7W9G3LPw==
+"@integry/sdk@4.4.34":
+  version "4.4.34"
+  resolved "https://registry.yarnpkg.com/@integry/sdk/-/sdk-4.4.34.tgz#a35748e684799aa1556d93b36f6e8f4584874573"
+  integrity sha512-9PHyTz4vTpNS5yKClrDXJOM06VIgfTMdRyBM9BeWr69+YKpuwcUhUn1+5c1iDmKrb8BYmtOJgz19TIomTSxQ6A==
   dependencies:
     "@yaireo/tagify" "^4.21.1"
     classnames "^2.3.1"

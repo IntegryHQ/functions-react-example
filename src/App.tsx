@@ -4,12 +4,14 @@ import { IntegryJS, Helpers } from "@integry/sdk";
 import "./App.css";
 
 function App() {
+  
+  const appKey = "<YOUR APP KEY>";
+  const appSecret = "YOUR APP SECRET";
+  const userId = "<USER ID>";
+
   useEffect(() => {
     const init = async () => {
       // Fill these in from the SDK deployment page
-      const appKey = "<YOUR APP KEY>";
-      const appSecret = "YOUR APP SECRET";
-      const userId = "<USER ID>";
 
       const hash = await Helpers.getAuthHash(userId, appSecret);
 
@@ -20,7 +22,7 @@ function App() {
           userId,
         },
       });
-      integry.isConnected("slack").then((authorization_id: string) => {
+      integry.isAppConnected("slack").then((authorization_id: string) => {
         /**
          * returns the authorization_id if the app is connected
          * otherwise returns false
@@ -28,7 +30,7 @@ function App() {
         if (authorization_id) {
           renderFunctionUI(integry);
         } else {
-          integry.connect("slack").then((response: any) => {
+          integry.connectApp("slack").then((response: any) => {
             renderFunctionUI(integry);
           });
         }
@@ -38,21 +40,27 @@ function App() {
   }, []);
 
   function renderFunctionUI(integry: IntegryJS) {
-    integry
-      .renderFunctionUI("slack-post-message", {}, "")
-      .then((result: any) => {
-        integry
-          .invokeFunction(result)
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    const params = {
+      channel: "alert",
+      text: "Hello, team!"
+    };
+    
+    integry.showFunctionUI("slack-post-message", params).then((result) => {
+      console.log("Function parameters filled-in by the user:", result);
+      //invoking the function
+      const newParams = {
+        channel: result.channel,
+        text: result.text
+      }
+      integry.invokeFunction("slack-post-message", newParams, userId).then((result) => {
+        console.log("Received response from Slack:", result);
+      }).catch((error) => {
+        console.error("Failed to invoke function:", error);
       });
+      
+    }).catch((error) => {
+      console.error("Failed to load function UI:", error);
+    });    
   }
 
   return (
