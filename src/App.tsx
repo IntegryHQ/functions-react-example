@@ -45,14 +45,15 @@ function App() {
       text: "Hello, team!"
     };
     
-    integry.showFunctionUI("slack-post-message", params).then((result) => {
+    integry.showFunction("slack-post-message", params).then((result) => {
       console.log("Function parameters filled-in by the user:", result);
       //invoking the function
       const newParams = {
         channel: result.channel,
         text: result.text
       }
-      integry.invokeFunction("slack-post-message", newParams, userId).then((result) => {
+      const additionalInfo = {}
+      integry.callFunction("slack-post-message", newParams, additionalInfo, userId).then((result) => {
         console.log("Received response from Slack:", result);
       }).catch((error) => {
         console.error("Failed to invoke function:", error);
